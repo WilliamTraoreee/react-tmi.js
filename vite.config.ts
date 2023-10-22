@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
+import path from 'node:path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
 	],
 	build: {
 		lib: {
-			entry: 'src/export.ts',
+			entry: path.resolve(__dirname, 'src/index.ts'),
 			name: 'use-tmi',
 			formats: ['es', 'umd'],
 			fileName: (format) => `use-tmi.${format}.js`,
